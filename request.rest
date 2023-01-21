@@ -1,0 +1,48 @@
+
+POST  http://localhost:4000/api/users
+Content-Type:  application/json
+
+{
+    "name": "admin",
+    "password": "%_admin_%"
+}
+
+###
+
+POST  http://localhost:4000/api/auth/login
+Content-Type:  application/json
+
+{
+    "name": "admin",
+    "password": "%_admin_%"
+}
+
+###
+POST http://localhost:4000/api/components/add_component
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiM2ZlMTliNTgtYTAwZC00NGI0LThkMjYtYzY5ZjIzOTJmYzQ4IiwidXNlcl9uYW1lIjoiYWRtaW4iLCJpYXQiOjE2Njk2NjI4MTEsImV4cCI6MTY2OTY2NjQxMX0.7Ldc7G4rYGJmK6PN2PG1Z1CZj30CTLA04k_DXhgD52s
+Content-Type: application/json
+
+{
+    "title": "first component",
+    "html_code": "<div class='box'><div>hello</div></div>",
+    "css_code": "body { color: red }",
+    "js_code": "document.body.style.backgroundColor = '#494949';",
+    "tags": ["animation", "input"]
+}
+
+###
+post http://localhost:4000/api/components/add_tag
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiM2ZlMTliNTgtYTAwZC00NGI0LThkMjYtYzY5ZjIzOTJmYzQ4IiwidXNlcl9uYW1lIjoiYWRtaW4iLCJpYXQiOjE2Njk2NjI4MTEsImV4cCI6MTY2OTY2NjQxMX0.7Ldc7G4rYGJmK6PN2PG1Z1CZj30CTLA04k_DXhgD52s
+Content-Type: application/json
+{
+    "tag_name": "Animation"
+}
+
+###
+get http://localhost:4000/api/components/tags
+Content-Type: application/json
+
+
+###
+GET http://localhost:4000/api/components/get_components
+Content-Type: application/json
